@@ -8,3 +8,11 @@ C = A + B
 D = A - B
 print("Matrix addition:\n", C)
 print("Matrix subtraction:\n", D)
+# Matrix multiplication
+E = np.dot(A, B)
+print("Matrix multiplication:\n", E)
+# Hands on exercise 
+# Create a 3x3 matrix and find its determinant
+F = np.array([[1,2,3],[4,5,6],[7,8,9]])
+determinant = np.linalg.det(F)
+print("Determinant of the matrix F:\n", determinant)
