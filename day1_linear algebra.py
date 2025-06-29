@@ -16,3 +16,8 @@ print("Matrix multiplication:\n", E)
 F = np.array([[1,2,3],[4,5,6],[7,8,9]])
 determinant = np.linalg.det(F)
 print("Determinant of the matrix F:\n", determinant)
+# implement matrix vector multiplication
+G = np.array([[1, 2, 3], [4, 5, 6]])
+v = np.array([1, 2, 3])
+result = np.dot(G, v)
+print("Matrix-vector multiplication result:\n", result)
