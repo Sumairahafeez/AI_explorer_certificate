@@ -1,6 +1,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.stats import norm
 mew, sigma = 0, 1
 x = np.linspace(-5, 5, 100)
 y = 1/(np.sqrt(2*np.pi*sigma**2))*np.exp(-(x-mew)**2/(2*sigma**2))
