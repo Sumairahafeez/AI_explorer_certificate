@@ -33,6 +33,7 @@ dates=(
   "2025-02-27" 
   "2025-02-28" 
   "2025-02-29" 
+  "2025-03-21"
    # Monday
 )
 
@@ -44,7 +45,7 @@ export GIT_COMMITTER_EMAIL="sumairahafeezfp@gmail.com"
 
 # Loop through each date and create a backdated commit
 for date in "${dates[@]}"; do
-  for i in 1 2; do
+  for i in 1 2 3 4 5 6 7; do
     hour=$((9 + i * 2))  # e.g., 11AM and 13PM
     export GIT_AUTHOR_DATE="$date T$hour:00:00"
     export GIT_COMMITTER_DATE="$date T$hour:00:00"
