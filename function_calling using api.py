@@ -23,3 +23,11 @@ def get_response(prompt, model="gpt-4o-mini"):
 # get answer
 response = get_response("What is the title of the book 'To Kill a Mockingbird'?")
 print(response.choices[0].message.tools[0].function.arguments)
+# defining function to return a dictionary to get the output data
+def extract_dictionary(response):
+    import json
+    try:
+        return json.loads(response.choices[0].message.tools[0].function.arguments)
+    except json.JSONDecodeError:
+        return None
+    
