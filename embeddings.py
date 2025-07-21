@@ -66,3 +66,31 @@ def find_n_closest(query_vector, embeddings, n=3):
   distances_sorted = sorted(distances, key = lambda x:x["distance"])
   # Return the first n elements in distances_sorted
   return distances_sorted[0:n]
+
+# Create the query vector from query_text
+query_text = "computer"
+query_vector = create_embeddings(query_text)[0]
+
+# Find the five closest distances
+hits = find_n_closest(query_vector, product_embeddings, n=5)
+
+print(f'Search results for "{query_text}"')
+for hit in hits:
+  # Extract the product at each index in hits
+  product = products[hit['index']]
+  print(product["title"])
+
+  # Combine the features for last_product and each product in products
+last_product_text = create_product_text(last_product)
+product_texts = [create_product_text(product) for product in products]
+
+# Embed last_product_text and product_texts
+last_product_embeddings = create_embeddings(last_product_text)[0]
+product_embeddings = create_embeddings(product_texts)[0]
+
+# Find the three smallest cosine distances and their indexes
+hits = find_n_closest(last_product_embeddings, product_embeddings)
+
+for hit in hits:
+  product = products[hit['index']]
+  print(product['title'])
