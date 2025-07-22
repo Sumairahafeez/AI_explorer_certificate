@@ -23,9 +23,6 @@ index.describe_index_stats()
 pc.delete_index("my-first-index")
 pc.list_indexes()
 
-# Initialize the Pinecone client using your API key
-pc = Pinecone(api_key="pcsk_7XqtBs_B1R5CfqQpQVXdjenLyGac3cRJYSMTaZUeNN6e5Y6RRsU3S542ssnu7597LTAgCe")
-
 # Create your Pinecone index
 pc.create_index(
     name="datacamp-index", 
