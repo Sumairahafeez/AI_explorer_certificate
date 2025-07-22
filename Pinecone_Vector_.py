@@ -22,3 +22,20 @@ index = pc.Index("my-first-index")
 index.describe_index_stats()
 pc.delete_index("my-first-index")
 pc.list_indexes()
+
+# Initialize the Pinecone client using your API key
+pc = Pinecone(api_key="pcsk_7XqtBs_B1R5CfqQpQVXdjenLyGac3cRJYSMTaZUeNN6e5Y6RRsU3S542ssnu7597LTAgCe")
+
+# Create your Pinecone index
+pc.create_index(
+    name="datacamp-index", 
+    dimension=1536, 
+    spec=ServerlessSpec(
+        cloud='aws', 
+        region='us-east-1'
+    )
+)
+
+# Check that each vector has a dimensionality of 1536
+vector_dims = [len(vector['dimensionality']) == 1536 for vector in vectors]
+print(pc.describe_index_stats(vector_dims))
